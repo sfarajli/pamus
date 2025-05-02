@@ -11,11 +11,12 @@ This script allows you to download audio files from YouTube Music based on a lis
 For help, run:
 ```Bash
 pamus -h 
+```
 
 ## Install
 Simply run:
 ``` Bash
-make
+sudo make
 ```
 ## Usage Examples
 
