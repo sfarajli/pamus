@@ -123,18 +123,27 @@ def main():
         default="mp3", 
         help="Audio format to download (default: mp3)"
     )
+    parser.add_argument(
+        "-s", "--song", 
+        type=str, 
+        nargs="*", 
+        help="Song names to download (can provide multiple songs separated by space)"
+    )
     args = parser.parse_args()
 
     output_dir = args.output_dir
     verbose = args.verbose
     input_file = args.input_file
     audio_format = args.audio_format
+    song_names = args.song
 
     # Replace $HOME with the actual home directory path for input file and output directory
     output_dir = output_dir.replace("$HOME", os.environ["HOME"])
     input_file = input_file.replace("$HOME", os.environ["HOME"])
 
-    song_names = read_song_names(input_file)
+    # If no songs are provided via command line, use the ones from the input file
+    if not song_names:
+        song_names = read_song_names(input_file)
 
     with ThreadPoolExecutor(max_workers=MAX_THREADS) as executor:
         futures = [executor.submit(process_song, name, output_dir, audio_format, verbose) for name in song_names]
