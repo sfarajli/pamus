@@ -16,7 +16,7 @@ from ytmusicapi import YTMusic
 ytmusic = YTMusic()
 
 # Constants for maximum threads and print lock
-MAX_THREADS = 8
+MAX_THREADS = 4
 print_lock = threading.Lock()
 
 # Function to sanitize file names
