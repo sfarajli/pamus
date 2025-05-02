@@ -24,7 +24,7 @@ pamus -h
 ## Install
 Simply run:
 ``` Bash
-    make
+make
 ```
 ### Examples
 
