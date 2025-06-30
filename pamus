@@ -100,33 +100,33 @@ def main():
     # Parse command-line arguments for output directory, verbosity, input file, and audio format
     parser = argparse.ArgumentParser(description="Download and tag songs from YouTube Music")
     parser.add_argument(
-        "-o", "--output-dir", 
-        type=str, 
-        default="$HOME/music",  # Default download path
+        "-o", "--output-dir",
+        type=str,
+        default="$HOME/media/music",  # Default download path
         help="Directory to save the downloaded audio files"
     )
     parser.add_argument(
-        "-v", "--verbose", 
-        action="store_true", 
+        "-v", "--verbose",
+        action="store_true",
         help="Enable verbose output"
     )
     parser.add_argument(
-        "-i", "--input-file", 
-        type=str, 
+        "-i", "--input-file",
+        type=str,
         default="$HOME/.config/pamus/list.txt",  # Default input file path
         help="Input file containing song names to download"
     )
     parser.add_argument(
-        "-f", "--audio-format", 
-        type=str, 
-        choices=["mp3", "aac", "flac", "opus", "wav"], 
-        default="mp3", 
+        "-f", "--audio-format",
+        type=str,
+        choices=["mp3", "aac", "flac", "opus", "wav"],
+        default="mp3",
         help="Audio format to download (default: mp3)"
     )
     parser.add_argument(
-        "-s", "--song", 
-        type=str, 
-        nargs="*", 
+        "-s", "--song",
+        type=str,
+        nargs="*",
         help="Song names to download (can provide multiple songs separated by space)"
     )
     args = parser.parse_args()
